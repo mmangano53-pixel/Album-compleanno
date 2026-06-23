@@ -162,19 +162,15 @@ button {
     color: #d94f7c;
 }
 
-/* Le polaroid devono essere cliccabili */
-.polaroid {
-    pointer-events: auto;
-}
-
-/* La clip NON deve essere cliccabile */
-.clip-img {
+/* CLICK SULLA POLAROID */
+.polaroid, 
+.polaroid * {
     pointer-events: none;
 }
 
-/* Il contenuto interno (foto/video) deve essere cliccabile */
-.polaroid * {
+.polaroid {
     pointer-events: auto;
+}
 /* POLAROID NORMALE (FOTO E VIDEO) */
 .polaroid {
     background: white;
@@ -315,4 +311,3 @@ button {
 .zoom-overlay.hidden {
     display: none !important;
 }
-
