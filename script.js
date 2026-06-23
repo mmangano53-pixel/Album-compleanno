@@ -68,6 +68,10 @@ yesBtn.addEventListener("mouseover", () => {
 fakeYesBtn.addEventListener("click", () => {
     startPage.classList.add("hidden");
     mainContent.classList.remove("hidden");
+    fakeYesBtn.addEventListener("click", () => {
+    console.log("CLICK RICEVUTO");
+    alert("CLICK OK");
+});
 
     currentTrack = 0;
     bgMusic.src = playlist[currentTrack];
