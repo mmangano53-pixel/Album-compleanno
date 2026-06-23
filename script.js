@@ -66,7 +66,7 @@ yesBtn.addEventListener("mouseover", () => {
 
 // “NO MA FINGO DI SÌ” → MOSTRA ALBUM + MUSICA
 fakeYesBtn.addEventListener("click", () => {
-    startPage.classList.add("hidden");
+    startPage.remove();
     mainContent.classList.remove("hidden");
     fakeYesBtn.addEventListener("click", () => {
     console.log("CLICK RICEVUTO");
