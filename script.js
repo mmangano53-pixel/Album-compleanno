@@ -1,4 +1,4 @@
-// ELEMENTI BASE
+/* ELEMENTI BASE */
 const cover = document.getElementById("cover");
 const enterBtn = document.getElementById("enterBtn");
 const startPage = document.getElementById("startPage");
@@ -7,9 +7,7 @@ const fakeYesBtn = document.getElementById("fakeYesBtn");
 const mainContent = document.getElementById("mainContent");
 const bgMusic = document.getElementById("bgMusic");
 
-// ------------------------------------------------------
-// PLAYLIST MANUALE (necessaria per GitHub Pages)
-// ------------------------------------------------------
+/* PLAYLIST */
 let playlist = [
     "audio/canzone1.mp3",
     "audio/canzone2.mp3",
@@ -18,7 +16,7 @@ let playlist = [
 
 let currentTrack = 0;
 
-// FADE IN
+/* FADE IN */
 function fadeIn(audio, duration = 3000) {
     audio.volume = 0;
     let step = 0.02;
@@ -28,7 +26,7 @@ function fadeIn(audio, duration = 3000) {
     }, duration / (0.4 / step));
 }
 
-// FADE OUT
+/* FADE OUT */
 function fadeOut(audio, callback, duration = 2000) {
     let step = 0.02;
     let interval = setInterval(() => {
@@ -41,7 +39,7 @@ function fadeOut(audio, callback, duration = 2000) {
     }, duration / (0.4 / step));
 }
 
-// CAMBIO CANZONE AUTOMATICO
+/* CAMBIO CANZONE */
 bgMusic.addEventListener("ended", () => {
     currentTrack++;
     if (currentTrack < playlist.length) {
@@ -51,20 +49,20 @@ bgMusic.addEventListener("ended", () => {
     }
 });
 
-// COPERTINA → PAGINA PULSANTI
+/* COPERTINA → PAGINA PULSANTI */
 enterBtn.addEventListener("click", () => {
     cover.remove();
     startPage.classList.remove("hidden");
 });
 
-// TASTO "SÌ" CHE SCAPPA
+/* TASTO “SÌ” CHE SCAPPA */
 yesBtn.addEventListener("mouseover", () => {
     const x = Math.random() * 300 - 150;
     const y = Math.random() * 300 - 150;
     yesBtn.style.transform = `translate(${x}px, ${y}px)`;
 });
 
-// “NO MA FINGO DI SÌ” → MOSTRA ALBUM + MUSICA
+/* “NO MA FINGO DI SÌ” → MOSTRA ALBUM + MUSICA */
 fakeYesBtn.addEventListener("click", () => {
     startPage.remove();
     mainContent.classList.remove("hidden");
@@ -75,15 +73,7 @@ fakeYesBtn.addEventListener("click", () => {
     fadeIn(bgMusic);
 });
 
-    currentTrack = 0;
-    bgMusic.src = playlist[currentTrack];
-    bgMusic.play();
-    fadeIn(bgMusic);
-});
-
-// -----------------------------
-// LETTERA NEL POPUP
-// -----------------------------
+/* LETTERA FINALE */
 let letterStarted = false;
 
 function showLetter() {
@@ -129,7 +119,7 @@ Buon Compleanno piccola stella ❤️`;
     }, { once: true });
 }
 
-// CLICK SULLA POLAROID DELLA LETTERA
+/* CLICK SULLA POLAROID DELLA LETTERA */
 const letterItem = document.querySelector(".letter-item");
 if (letterItem) {
     letterItem.addEventListener("click", () => {
