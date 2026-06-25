@@ -75,46 +75,6 @@ fakeYesBtn.addEventListener("click", () => {
 });
 
 // -----------------------------
-// APRI VIDEO AL CLICK
-// -----------------------------
-
-const zoomOverlay = document.getElementById("zoomOverlay");
-const zoomContent = document.getElementById("zoomContent");
-
-// trova tutti i video nelle polaroid
-const videoElements = document.querySelectorAll(".polaroid video");
-
-videoElements.forEach(video => {
-    const src = video.getAttribute("src");
-
-    // rende cliccabile tutta la polaroid
-    const polaroid = video.closest(".hanging-item");
-    if (polaroid) {
-        polaroid.style.cursor = "pointer";
-        polaroid.addEventListener("click", () => {
-            openVideo(src);
-        });
-    }
-});
-
-function openVideo(src) {
-    zoomContent.innerHTML = "";
-
-    const vid = document.createElement("video");
-    vid.src = src;
-    vid.controls = true;
-    vid.autoplay = true;
-
-    zoomContent.appendChild(vid);
-    zoomOverlay.classList.remove("hidden");
-}
-
-zoomOverlay.addEventListener("click", () => {
-    zoomOverlay.classList.add("hidden");
-    zoomContent.innerHTML = "";
-});
-
-// -----------------------------
 // LETTERA NEL POPUP
 // -----------------------------
 let letterStarted = false;
@@ -170,3 +130,43 @@ if (letterItem) {
         showLetter();
     });
 }
+// -----------------------------
+// APRI VIDEO AL CLICK
+// -----------------------------
+
+const zoomOverlay = document.getElementById("zoomOverlay");
+const zoomContent = document.getElementById("zoomContent");
+
+// trova tutti i video nelle polaroid
+const videoElements = document.querySelectorAll(".polaroid video");
+
+videoElements.forEach(video => {
+    const src = video.getAttribute("src");
+
+    // rende cliccabile tutta la polaroid
+    const polaroid = video.closest(".hanging-item");
+    if (polaroid) {
+        polaroid.style.cursor = "pointer";
+        polaroid.addEventListener("click", () => {
+            openVideo(src);
+        });
+    }
+});
+
+function openVideo(src) {
+    zoomContent.innerHTML = "";
+
+    const vid = document.createElement("video");
+    vid.src = src;
+    vid.controls = true;
+    vid.autoplay = true;
+
+    zoomContent.appendChild(vid);
+    zoomOverlay.classList.remove("hidden");
+}
+
+zoomOverlay.addEventListener("click", () => {
+    zoomOverlay.classList.add("hidden");
+    zoomContent.innerHTML = "";
+});
+
